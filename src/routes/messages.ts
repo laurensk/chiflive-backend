@@ -13,13 +13,14 @@ router.route("/").get(verifyPassword, (req, res) => {
     Debug.log(error);
     if (error) return Error.sendError(res, error);
     res.json({
-      entries: messages,
+      messages: messages,
     });
   });
 });
 
 router.route("/").delete(verifyPassword, (req, res) => {
   const messageId: number = req.body.messageId;
+  if (messageId == undefined) return Error.sendError(res, Error.validationError);
   deleteMessage(messageId, (error, success) => {
     Debug.log(error);
     if (error) return Error.sendError(res, error);
@@ -42,6 +43,8 @@ router.route("/toggleReadStatus").post(verifyPassword, (req, res) => {
 
 router.route("/").post((req, res) => {
   const { author, body }: { author: string; body: string } = req.body;
+  if (author == undefined || body == undefined) return Error.sendError(res, Error.validationError);
+  if (body.length < 2) return Error.sendError(res, Error.validationError);
   createMessage(author, body, (error, success) => {
     Debug.log(error);
     if (error) return Error.sendError(res, error);

@@ -6,6 +6,7 @@ export const toggleReadStatus = (messageId: number, callback: Function) => {
   Sql.query("SELECT mesRead FROM CLMessages WHERE mesId = ?", [messageId], (err, rows) => {
     Debug.log(err);
     if (err) return callback(Error.unknownError, null);
+    if (rows.length != 1) return callback(Error.messageDoesNotExist, null);
 
     const currentReadStatus: number = rows[0].mesRead;
     const newReadStatus: number = currentReadStatus == 1 ? 0 : 1;
