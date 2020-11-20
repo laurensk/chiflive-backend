@@ -18,7 +18,7 @@ export const createUser = (name: string, login: string, password: string, callba
       (err) => {
         Debug.log(err);
         if (err) return callback(Error.unknownError, null);
-        callback(null, { login, name });
+        return callback(null, { login, name });
       }
     );
   });
