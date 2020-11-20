@@ -1,0 +1,17 @@
+{
+  "name": "template-nodets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/App.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc && node dist/App.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tslint": "^6.1.3",
+    "typescript": "^4.0.3"
+  }
+}
