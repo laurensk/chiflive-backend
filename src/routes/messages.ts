@@ -8,7 +8,7 @@ import { deleteMessage } from "../api/messages/deleteMessage";
 import { toggleReadStatus } from "../api/messages/toggleReadStatus";
 const router = express.Router();
 
-router.route("/").get(verifyPassword, (req, res) => {
+router.route("/get").post(verifyPassword, (req, res) => {
   getAllMessages((error, messages) => {
     Debug.log(error);
     if (error) return Error.sendError(res, error);
@@ -18,7 +18,7 @@ router.route("/").get(verifyPassword, (req, res) => {
   });
 });
 
-router.route("/").delete(verifyPassword, (req, res) => {
+router.route("/delete").post(verifyPassword, (req, res) => {
   const messageId: number = req.body.messageId;
   if (messageId == undefined) return Error.sendError(res, Error.validationError);
   deleteMessage(messageId, (error, success) => {

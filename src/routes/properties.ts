@@ -7,7 +7,7 @@ import { toggleLiveEvent } from "../api/properties/toggleLiveEvent";
 import { getLiveEvent } from "../api/properties/getLiveEvent";
 const router = express.Router();
 
-router.route("/isLiveEvent").get((req, res) => {
+router.route("/isLiveEvent").post((req, res) => {
   getLiveEvent((error, value) => {
     Debug.log(error);
     if (error) return Error.sendError(res, error);

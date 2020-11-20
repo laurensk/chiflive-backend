@@ -5,7 +5,7 @@ import { getUser } from "../api/user/getUser";
 import Debug from "../api/helpers/Debug";
 const router = express.Router();
 
-router.route("/").get(verifyPassword, (req, res) => {
+router.route("/").post(verifyPassword, (req, res) => {
   const uuid = req.body.uuid;
   getUser(uuid, (error, user) => {
     Debug.log(error);

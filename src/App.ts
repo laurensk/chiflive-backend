@@ -10,6 +10,13 @@ const app = express();
 app.use(express.json());
 app.disable("x-powered-by");
 
+app.use((req, res, next) => {
+  res.append("Access-Control-Allow-Origin", ["*"]);
+  res.append("Access-Control-Allow-Methods", "GET,POST,DELETE");
+  res.append("Access-Control-Allow-Headers", "Content-Type");
+  next();
+});
+
 app.use(router);
 
 app.listen(process.env.PORT || 8081, () => {
