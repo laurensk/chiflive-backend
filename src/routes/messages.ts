@@ -25,7 +25,9 @@ router.route("/").delete(verifyPassword, (req, res) => {
     Debug.log(error);
     if (error) return Error.sendError(res, error);
     res.json({
-      success: "true",
+      success: {
+        success: "true",
+      },
     });
   });
 });
@@ -36,7 +38,9 @@ router.route("/toggleReadStatus").post(verifyPassword, (req, res) => {
     Debug.log(error);
     if (error) return Error.sendError(res, error);
     res.json({
-      success: "true",
+      success: {
+        success: "true",
+      },
     });
   });
 });
@@ -49,7 +53,9 @@ router.route("/").post((req, res) => {
     Debug.log(error);
     if (error) return Error.sendError(res, error);
     res.json({
-      success: "true",
+      success: {
+        success: "true",
+      },
     });
   });
 });

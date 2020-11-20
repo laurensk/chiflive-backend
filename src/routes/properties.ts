@@ -12,7 +12,9 @@ router.route("/isLiveEvent").get((req, res) => {
     Debug.log(error);
     if (error) return Error.sendError(res, error);
     res.json({
-      isLiveEvent: value,
+      isLiveEvent: {
+        isLiveEvent: value,
+      },
     });
   });
 });
@@ -22,7 +24,9 @@ router.route("/toggleLiveEvent").post(verifyPassword, (req, res) => {
     Debug.log(error);
     if (error) return Error.sendError(res, error);
     res.json({
-      success: "true",
+      success: {
+        success: "true",
+      },
     });
   });
 });
