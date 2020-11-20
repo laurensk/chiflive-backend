@@ -19,4 +19,5 @@ export class Error {
   static loginExists = { statusCode: 400, message: "LOGIN_EXISTS" };
   static loginFailed = { statusCode: 400, message: "LOGIN_FAILED" };
   static messageDoesNotExist = { statusCode: 400, message: "MESSAGE_DOES_NOT_EXIST" };
+  static noLiveEvent = { statusCode: 400, message: "NO_LIVE_EVENT" };
 }
