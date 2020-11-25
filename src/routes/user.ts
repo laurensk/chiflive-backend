@@ -1,6 +1,7 @@
 import express from "express";
 import { Error } from "../api/helpers/ErrorHandling";
 import { verifyPassword } from "../api/user/verifyPassword";
+import { verifyWritePermission } from "../api/user/verifyWritePermission";
 import { getUser } from "../api/user/getUser";
 import Debug from "../api/helpers/Debug";
 const router = express.Router();

@@ -1,6 +1,7 @@
 import express from "express";
 import { Error } from "../api/helpers/ErrorHandling";
 import { verifyPassword } from "../api/user/verifyPassword";
+import { verifyWritePermission } from "../api/user/verifyWritePermission";
 import Debug from "../api/helpers/Debug";
 import { getAllMessages } from "../api/messages/getAllMessages";
 import { createMessage } from "../api/messages/createMessage";
@@ -18,7 +19,7 @@ router.route("/get").post(verifyPassword, (req, res) => {
   });
 });
 
-router.route("/delete").post(verifyPassword, (req, res) => {
+router.route("/delete").post(verifyPassword, verifyWritePermission, (req, res) => {
   const messageId: number = req.body.messageId;
   if (messageId == undefined) return Error.sendError(res, Error.validationError);
   deleteMessage(messageId, (error, success) => {
@@ -32,7 +33,7 @@ router.route("/delete").post(verifyPassword, (req, res) => {
   });
 });
 
-router.route("/toggleReadStatus").post(verifyPassword, (req, res) => {
+router.route("/toggleReadStatus").post(verifyPassword, verifyWritePermission, (req, res) => {
   const messageId: number = req.body.messageId;
   toggleReadStatus(messageId, (error, success) => {
     Debug.log(error);
