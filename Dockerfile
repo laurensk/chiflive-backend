@@ -8,6 +8,8 @@ RUN npm install
 
 COPY . .
 
+RUN npm build
+
 ENV PORT=443
 ENV DEBUG=FALSE
 
