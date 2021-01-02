@@ -1,3 +1,3 @@
 # ChifLive-Backend
 
-Backend of [https://live.chif19.at](https://live.chif19.at).
+Backend of [https://www.chiflive.com](https://www.chiflive.com).
