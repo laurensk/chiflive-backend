@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import { resolve } from "path";
 import { router } from "./Router";
 
@@ -9,6 +10,8 @@ const app = express();
 
 app.use(express.json());
 app.disable("x-powered-by");
+
+app.use(cors());
 
 app.use((req, res, next) => {
   res.append("Access-Control-Allow-Origin", ["*"]);
